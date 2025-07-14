@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import img from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const SignUp = () => {
 
+    const {createUser} = useContext(AuthContext)
+
     const handleSingUp = e => {
-        e.prevetDefault();
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password= form.password.value;
+        console.log(name, email, password);
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                form.reset();
+            })
+            .catch(error => console.log(error));
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -14,8 +29,8 @@ const SignUp = () => {
                     <img src={img} alt="" />
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <form className="card-body">
-                        <h1 className="text-4xl font-semibold text-center">Login</h1>
+                    <div className="card-body">
+                        <h1 className="text-4xl font-semibold text-center">Sign Up</h1>
                         <form onSubmit={handleSingUp}>
                             <div className="form-control">
                                 <label className="label">
@@ -40,7 +55,7 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className='mt-5 text-center'>Already have an account?<Link className='text-red-500 font-semibold hover:underline' to="/login"> Login</Link></p>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
