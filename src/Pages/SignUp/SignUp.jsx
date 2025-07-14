@@ -36,7 +36,7 @@ const SignUp = () => {
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <input className='btn bg-[#FF3811] text-white hover:bg-red-600' type="submit" value="Login" />
+                                <input className='btn bg-[#FF3811] text-white hover:bg-red-600' type="submit" value="Sign Up" />
                             </div>
                         </form>
                         <p className='mt-5 text-center'>Already have an account?<Link className='text-red-500 font-semibold hover:underline' to="/login"> Login</Link></p>
