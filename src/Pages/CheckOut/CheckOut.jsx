@@ -21,7 +21,7 @@ const CheckOut = () => {
             price: price,
             img,
         };
-        console.log("Order submitted:",message, booking);
+        // console.log("Order submitted:", message, booking);
 
         //insert data to db
         fetch('http://localhost:5000/bookings', {
@@ -33,10 +33,14 @@ const CheckOut = () => {
         })
             .then(res => res.json())
             .then(data => {
-            console.log(data);
-        })
-                
-        form.reset();
+                // console.log(data);
+                if (data.insertedId) {
+                    alert('✅ Booking confirmed!');
+                    form.reset();
+                }
+            })
+            .catch(err => console.error('Booking error:', err));
+
     };
     return (
         <>
