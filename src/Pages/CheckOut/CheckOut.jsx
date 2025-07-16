@@ -4,21 +4,38 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const CheckOut = () => {
     const service = useLoaderData();
-    const { title, price, _id} = service;
+    const { title, price, _id, img } = service;
+    // console.log(img);
     const { user } = useContext(AuthContext);
 
     const handleOrderSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         const message = form.message.value;
-        const orderData = {
+        const booking = {
             customerName: form.name.value,
             date: form.date.value,
             email: form.email.value,
-            service: _id,
+            service: title,
+            service_id: _id,
             price: price,
+            img,
         };
-        console.log("Order submitted:",message, orderData);
+        console.log("Order submitted:",message, booking);
+
+        //insert data to db
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+            console.log(data);
+        })
+                
         form.reset();
     };
     return (
