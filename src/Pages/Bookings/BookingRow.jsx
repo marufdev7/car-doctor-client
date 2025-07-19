@@ -1,18 +1,8 @@
 import React from 'react';
 
-const BookingRow = ({ booking }) => {
+const BookingRow = ({ booking , handleDelete}) => {
     const { _id, customerName, price, service, img, date } = booking;
     
-    const handleDelete = id => {
-        const proceed = confirm('Are you sure you want to delete this?');
-        if (proceed) {
-            fetch(``)
-                .then(res => res.json())
-                .then(data => {
-                console.log(data);
-            })
-        }
-    }
     return (
         <tr>
             <th>
