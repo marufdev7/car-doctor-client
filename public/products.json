@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Car Engine Plug",
+        "price": 20.00,
+        "rating": 5,
+        "image": "/src/assets/images/products/6.png"
+    },
+    {
+        "id": 2,
+        "name": "Car Air Filter",
+        "price": 20.00,
+        "rating": 5,
+        "image": "/src/assets/images/products/3.png"
+    },
+    {
+        "id": 3,
+        "name": "Hydraulic Brake",
+        "price": 20.00,
+        "rating": 5,
+        "image": "/src/assets/images/products/1.png"
+    },
+    {
+        "id": 4,
+        "name": "Brake Disc",
+        "price": 20.00,
+        "rating": 5,
+        "image": "/src/assets/images/products/2.png"
+    },
+    {
+        "id": 5,
+        "name": "Tire Set",
+        "price": 20.00,
+        "rating": 5,
+        "image": "/src/assets/images/products/5.png"
+    },
+    {
+        "id": 6,
+        "name": "Car Battery",
+        "price": 20.00,
+        "rating": 5,
+        "image": "/src/assets/images/products/4.png"
+    }
+]
