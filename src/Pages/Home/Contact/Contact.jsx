@@ -7,7 +7,7 @@ import location from '../../../assets/icons-contact/location.svg';
 const Contact = () => {
     return (
         <div>
-            <footer className=" flex justify-between bg-slate-800 rounded text-white px-16 py-16">
+            <footer className=" flex flex-col gap-3 items-center md:flex-row md:justify-between bg-slate-800 rounded text-white lg:px-16 lg:py-16">
                 <nav className='flex items-center gap-2'>
                     <img src={calender} alt="calender icon" className="w-10 h-10 object-contain" />
                     <div>

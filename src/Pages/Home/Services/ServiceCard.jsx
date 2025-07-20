@@ -5,7 +5,7 @@ const ServiceCard = ({ service }) => {
     const {_id, title, img, price } = service;
 
     return (
-        <div className="card bg-base-200 w-96 shadow-xl">
+        <div className="card bg-base-200 w-96 shadow-lg hover:shadow-xl">
             <figure className="px-8 pt-8">
                 <img
                     src={img}
