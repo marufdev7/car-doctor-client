@@ -6,11 +6,13 @@ import SignUp from "../Pages/SignUp/SignUp";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import Bookings from "../Pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../Pages/Error/Error";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
+        errorElement: <Error/>,
         children: [
             {
                 path: "/",
