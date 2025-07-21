@@ -16,7 +16,7 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
+
         signIn(email, password)
             .then(result => {
                 const user = result.user;
@@ -57,7 +57,15 @@ const Login = () => {
                                 <input className='btn bg-[#FF3811] text-white hover:bg-red-600' type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='mt-5 text-center'>New to car Doctors?<Link className='text-red-500 font-semibold hover:underline' to="/signup"> Sign Up</Link></p>
+                        <p className='mt-5 text-center'>New to car Doctors?
+                            <Link
+                                className='text-red-500 font-semibold hover:underline'
+                                to="/signup"
+                                state={{ from: location.state?.from || { pathname: "/" } }}
+                            >
+                                Sign Up
+                            </Link>
+                        </p>
                     </div>
                 </div>
             </div>
