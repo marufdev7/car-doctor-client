@@ -12,29 +12,31 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        errorElement: <Error/>,
+        errorElement: <Error />,
         children: [
             {
                 path: "/",
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: "/login",
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: "signup",
-                element: <SignUp/>
+                element: <SignUp />
             },
             {
                 path: 'checkout/:id',
-                element: <CheckOut />,
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                element: <PrivateRoute>
+                    <CheckOut />
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: 'bookings',
                 element: <PrivateRoute>
-                    <Bookings/>
+                    <Bookings />
                 </PrivateRoute>
             }
         ]

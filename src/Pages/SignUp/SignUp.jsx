@@ -1,24 +1,29 @@
 import React, { useContext } from 'react';
 import img from '../../assets/images/login/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const SignUp = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || "/";
 
     const handleSingUp = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
-        const password= form.password.value;
-        console.log(name, email, password);
+        const password = form.password.value;
+        // console.log(name, email, password);
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 // console.log(user);
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error));
     }
