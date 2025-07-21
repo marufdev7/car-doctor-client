@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const CheckOut = () => {
@@ -7,6 +7,7 @@ const CheckOut = () => {
     const { title, price, _id, img } = service;
     // console.log(img);
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleOrderSubmit = (e) => {
         e.preventDefault();
@@ -37,6 +38,7 @@ const CheckOut = () => {
                 if (data.insertedId) {
                     alert('✅ Booking confirmed!');
                     form.reset();
+                    navigate("/bookings", { replace: true });
                 }
             })
             .catch(err => console.error('Booking error:', err));
