@@ -23,7 +23,7 @@ const Login = () => {
                 const loggedUser = {
                     email: user.email,
                 }
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 fetch('http://localhost:5000/jwt', {
                     method: 'POST',
                     headers: {
@@ -33,7 +33,9 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log('jwt', data);
+                        // console.log('jwt response', data);
+                        //Warning: local storage is not the best (second best) to store access token.
+                        localStorage.setItem('car-access-token', data.token);
                     })
 
                 form.reset();
