@@ -25,7 +25,7 @@ const CheckOut = () => {
         // console.log("Order submitted:", message, booking);
 
         //insert data to db
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://car-doctor-server-rosy-nu.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -12,7 +12,7 @@ const SocialLogin = () => {
         googleSignIn()
             .then(result => {
                 // console.log(result.user);
-                console.log(from);
+                // console.log(from);
                 navigate(from, { replace: true });
             })
             .catch(error => console.log(error));
