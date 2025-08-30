@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
                 const loggedUser = {
                     email: currentUser.email,
                 }
-                fetch('https://car-doctor-server-rosy-nu.vercel.app/jwt', {
+                fetch('https://car-doctor-server-8m67.onrender.com/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
