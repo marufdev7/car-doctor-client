@@ -15,7 +15,7 @@ const ServiceCard = ({ service }) => {
             <div className="card-body">
                 <h2 className="card-title font-bold">{title}</h2>
                 <div className="card-actions items-center">
-                    <p className='font-bold text-red-500'>{price}$</p>
+                    <p className='font-bold text-red-500'>Price: {price}$</p>
                     <Link to={`/checkout/${_id}`}>
                         <button className="btn text-red-500 hover:bg-red-500 hover:text-white bg-white border-red-500">Book now</button>
                     </Link>
