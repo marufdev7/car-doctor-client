@@ -7,9 +7,8 @@ const Services = () => {
     const searchRef = useRef(null);
     const [search, setSearch] = useState('');
 
-    // https://car-doctor-server-8m67.onrender.com
     useEffect(() => {
-        fetch(`http://localhost:5000/services?search=${search}&sort=${asc ? "asc" : "desc"}`)
+        fetch(`https://car-doctor-server-8m67.onrender.com/services?search=${search}&sort=${asc ? "asc" : "desc"}`)
             .then(res => res.json())
             .then(data => setServices(data))
     }, [asc, search])
