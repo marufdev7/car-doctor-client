@@ -3,18 +3,27 @@ import ServiceCard from './ServiceCard';
 
 const Services = () => {
     const [services, setServices] = useState([]);
+    const [asc, setAsc] = useState(true);
+    console.log(asc);
 
+    // https://car-doctor-server-8m67.onrender.com
     useEffect(() => {
-        fetch('https://car-doctor-server-8m67.onrender.com/services')
+        fetch(`http://localhost:5000/services?sort=${asc ? "asc" : "desc"}`)
             .then(res => res.json())
             .then(data => setServices(data))
-    }, [])
+    }, [asc])
     return (
         <div className='py-10'>
             <div className='text-center my-5'>
                 <h4 className="font-bold text-red-500">Services</h4>
                 <h1 className="font-bold text-5xl">Our Service Area</h1>
                 <p className="text-gray-600 py-6">the majority have suffered alteration in some form, by injected humour, or randomised <br /> words which don't look even slightly believable. </p>
+                <button
+                    className='btn bg-sky-400 hover:bg-sky-500'
+                    onClick={() => setAsc(!asc)}
+                >
+                    {asc ? "Descending" : "Ascending"}
+                </button>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {
